@@ -12,6 +12,8 @@ Use python >= 3.10. To install dependencies, use
 ```
 pip install -r requirements.txt
 ```
+Note: Need to install exactly nnsight==0.2.9, version 0.3.0 will have errors. I have changed this in requirements.txt.
+
 
 You will also need to clone the [dictionary learning repository](https://github.com/saprmarks/dictionary_learning). Run this command from the root directory of this repository to get that code:
 ```
@@ -80,7 +82,8 @@ The following files contain utilities which are generally useful for our circuit
 * `attribution.py` implements methods for attributing model behaviors to SAE features and error terms.
 * `activation_utils.py` defines the `SparseAct` object, which bundles together feature activations and error terms in a convenient way and provides utilities for working with them in a unified way.
 * `ablation.py` implements general methods useful for performing SAE feature ablations
-* `circuit.py` contains our circuit discovery code
+* `circuit.py` contains our circuit discovery code \
+Note: I have changed the default path to SAE weights `dict_path` to my local path in `line 425`. This should be customized to the location your SAE weights are downloaded.
 * `circuit_plotting.py` contains our code for plotting circuits, once discovered.
 * `loading_utils.py` contains utilities for working with our subject-verb agreement datasets and clusters.
 
