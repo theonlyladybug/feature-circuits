@@ -290,8 +290,8 @@ def get_circuit_cluster(dataset,
                         device="cuda:0",
                         dict_path="dictionaries/pythia-70m-deduped/",
                         dataset_name="cluster_circuit",
-                        circuit_dir="circuits/",
-                        plot_dir="circuits/figures/",
+                        circuit_dir="circuits",
+                        plot_dir="circuits/figures",
                         model=None,
                         dictionaries=None,):
     
@@ -421,7 +421,8 @@ if __name__ == '__main__':
                         help="The max length (if using sum aggregation) or exact length (if not aggregating) of examples.")
     parser.add_argument('--model', type=str, default='EleutherAI/pythia-70m-deduped',
                         help="The Huggingface ID of the model you wish to test.")
-    parser.add_argument("--dict_path", type=str, default="dictionaries/pythia-70m-deduped/",
+    # I changed default path to the SAE weights in the line below:
+    parser.add_argument("--dict_path", type=str, default="/media/data/yiran/llms/saes/dictionaries/pythia-70m-deduped/",
                         help="Path to all dictionaries for your language model.")
     parser.add_argument('--d_model', type=int, default=512,
                         help="Hidden size of the language model.")
@@ -447,9 +448,9 @@ if __name__ == '__main__':
                         help="Only search for causally implicated features; do not draw edges.")
     parser.add_argument('--plot_only', action="store_true",
                         help="Do not run circuit discovery; just plot an existing circuit.")
-    parser.add_argument("--circuit_dir", type=str, default="circuits/",
+    parser.add_argument("--circuit_dir", type=str, default="circuits",
                         help="Directory to save/load circuits.")
-    parser.add_argument("--plot_dir", type=str, default="circuits/figures/",
+    parser.add_argument("--plot_dir", type=str, default="circuits/figures",
                         help="Directory to save figures.")
     parser.add_argument('--seed', type=int, default=12)
     parser.add_argument('--device', type=str, default='cuda:0')
